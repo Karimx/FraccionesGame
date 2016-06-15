@@ -1,3 +1,4 @@
+
 import com.sun.javafx.geom.BaseBounds;
 import com.sun.javafx.geom.transform.BaseTransform;
 import com.sun.javafx.jmx.MXNodeAlgorithm;
@@ -121,11 +122,8 @@ public class Fraccion extends Node {
     }
 
     private void init() {
-
         anguloActual = anguloInicial;
-
         tamaño = (double) 360 / denominador;
-
 
     }
 
@@ -198,15 +196,12 @@ public class Fraccion extends Node {
     }
 
     private void crearFigura() {
-        if (esSolovisibleFrac) {
-            for (int i = 0; i < denominador; i++) {
-                rebanadas.add(arcFactory.getNewArc());
-            }
-
-
-            for (int j = 0; j < numerador; j++)
-                rebanadas.get(j).setFill(color);
+        for (int i = 0; i < denominador; i++) {
+            rebanadas.add(arcFactory.getNewArc());
         }
+        for (int j = 0; j < numerador; j++)
+            rebanadas.get(j).setFill(color);
+
     }
 
 
@@ -241,8 +236,7 @@ public class Fraccion extends Node {
         }
 
         private void init(String numerator, String denominator) {
-            if (esSolovisibleFrac)
-                figOffset = radioY + 5;
+            figOffset = radioY + 5;
             setAlignment(Pos.CENTER);
             Text numeratorText = new Text(numerator);
             Text denominatorText = new Text(denominator);
@@ -263,11 +257,9 @@ public class Fraccion extends Node {
             this.setTranslateX(centroX - 10);
             this.setTranslateY(centroY + figOffset);
         }
-
         public double getBaselineOffset() {
             return offset;
         }
-
 
     }
 
@@ -275,10 +267,8 @@ public class Fraccion extends Node {
     ) {
         hbox = new Pane();
 
-        for (Arc arc : rebanadas
-                ) {
+        for (Arc arc : rebanadas) {
             hbox.getChildren().add(arc);
-
         }
 
         hbox.getChildren().add(new Fraction(this.numerador, this.denominador));
