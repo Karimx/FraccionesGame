@@ -10,7 +10,6 @@ public class main extends Application {
         launch(args);
 
     }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         ControladorEjercicios controladorEjercicios=new ControladorEjercicios();
@@ -21,22 +20,17 @@ public class main extends Application {
         try {
             scene.getStylesheets().add("estilos.css");
         } catch (Exception ex) {
-            System.err.println("Cannot acquire stylesheet: " + ex.toString());
+            System.err.println("Error al cargar la hoja de estilos " + ex.toString());
         }
         primaryStage.setScene(scene);
-
-
         //fraccion.setTamaño(20);
-
         controladorEjercicios.setRoot(root);
-        controladorEjercicios.ejercicio1(3);
+        controladorEjercicios.siguienteEjercicio();
+
+
+
         //ControladorGame controladorGame=new ControladorGame(root);
-
-
-
-
-        System.out.println(root.getChildren().size());
-
+        //System.out.println(root.getChildren().size());
         primaryStage.show();
 
     }
